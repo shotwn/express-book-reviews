@@ -1,26 +1,3 @@
-curl.exe -i -X POST http://localhost:5000/register -H "Content-Type: application/json" --data-binary @tasks/register_payload.json
-
-curl.exe :   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-At line:2 char:259
-+ ... ; $output = & curl.exe -i -X POST http://localhost:5000/register -H ' ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (  % Total    % ... Time   Current:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-                                 Dload  Upload  Total   Spent   Left   Speed
-
-  0      0   0      0   0      0      0      0                              0
-100     93 100     42 100     51  13592  16504                              0
-100     93 100     42 100     51  13236  16073                              0
-100     93 100     42 100     51  12991  15774                              0
-HTTP/1.1 201 Created
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 42
-ETag: W/"2a-nMoFx54+czTntmSLXl3mqIsZV4A"
-Date: Thu, 25 Jun 2026 18:01:55 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
+curl.exe -sS -X POST http://localhost:5000/register -H "Content-Type: application/json" --data-binary @tasks/register_payload.json
 
 {"message":"User registered successfully"}
-
