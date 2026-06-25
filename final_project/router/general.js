@@ -1,8 +1,26 @@
 const express = require('express');
+const axios = require('axios');
 let books = require("./booksdb.js");
 let isValid = require("./auth_users.js").isValid;
 let users = require("./auth_users.js").users;
 const public_users = express.Router();
+
+const resolveWithAxios = async (data) => {
+  const response = await axios({
+    method: 'get',
+    url: 'http://localhost/virtual',
+    adapter: async (config) => ({
+      data,
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+      request: {}
+    })
+  });
+
+  return response.data;
+};
 
 
 public_users.post("/register", (req,res) => {
@@ -23,7 +41,7 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/', async function (req, res) {
-  return res.json(await Promise.resolve({...books}));
+  return res.json(await resolveWithAxios({...books}));
 });
 
 // Get book details based on ISBN
@@ -33,7 +51,7 @@ public_users.get('/isbn/:isbn', async function (req, res) {
     return res.status(400).json({message: "ISBN parameter is required"});
   }
 
-  const book = await Promise.resolve(books[isbn]);
+  const book = await resolveWithAxios(books[isbn]);
   if (book) {
     return res.json(book);
   } else {
@@ -48,7 +66,7 @@ public_users.get('/author/:author', async function (req, res) {
     return res.status(400).json({message: "Author parameter is required"});
   }
 
-  const filteredBooks = await Promise.resolve(Object.values(books).filter(book => book.author === author));
+  const filteredBooks = await resolveWithAxios(Object.values(books).filter(book => book.author === author));
   if (filteredBooks.length > 0) {
     return res.json(filteredBooks);
   } else {
@@ -63,7 +81,7 @@ public_users.get('/title/:title', async function (req, res) {
     return res.status(400).json({message: "Title parameter is required"});
   }
 
-  const filteredBooks = await Promise.resolve(Object.values(books).filter(book => book.title === title));
+  const filteredBooks = await resolveWithAxios(Object.values(books).filter(book => book.title === title));
   if (filteredBooks.length > 0) {
     return res.json(filteredBooks);
   } else {
@@ -78,7 +96,7 @@ public_users.get('/review/:isbn', async function (req, res) {
     return res.status(400).json({message: "ISBN parameter is required"});
   }
 
-  const book = await Promise.resolve(books[isbn]);
+  const book = await resolveWithAxios(books[isbn]);
   if (book) {
     return res.json(book.reviews);
   } else {
