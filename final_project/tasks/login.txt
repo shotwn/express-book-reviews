@@ -3,11 +3,11 @@ curl.exe -sS -i -X POST http://localhost:5000/customer/login -H "Content-Type: a
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 229
-ETag: W/"e5-bOYkH/HBVGKwsT4nwf+Z5BKlOKA"
-Set-Cookie: connect.sid=s%3AaWK6MMUhK_G1CuzNB6g77H8Feq6OOsEC.%2BF%2Bk9vYa2yyUwKwQ9PHRp61AAiD5VJ0aXIcbqyd%2FOD4; Path=/; HttpOnly
-Date: Thu, 25 Jun 2026 18:10:52 GMT
+Content-Length: 259
+ETag: W/"103-PP1WVSR0w84zUTLGc16fZLybmW8"
+Set-Cookie: connect.sid=s%3AHEoTGTmrfU_rJkvoh-6fgC6h9pAGDvs7.6H%2FYzckzzGGFQ8Foc4%2FxE%2FAkm6ut09CHvwLsXj1bUFU; Path=/; HttpOnly
+Date: Thu, 25 Jun 2026 18:44:26 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvZGV4X3VzZXIiLCJsb2dpblRpbWUiOiJUaHUgSnVuIDI1IDIwMjYgMjE6MTA6NTIgR01UKzAzMDAgKEdNVCswMzowMCkiLCJpYXQiOjE3ODI0MTEwNTJ9.XLbDwYUQ0pNNfp4ifG_NXHXsmGNytF3u2OqMvk_c3ZM"}
+{"message":"Login successful!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvZGV4X3VzZXIiLCJsb2dpblRpbWUiOiJUaHUgSnVuIDI1IDIwMjYgMjE6NDQ6MjYgR01UKzAzMDAgKEdNVCswMzowMCkiLCJpYXQiOjE3ODI0MTMwNjZ9.LMcvbYQQ4sBj493BEHgQ9mC8BIMxpfu9ZnKHZ08X1HI"}

@@ -6,9 +6,7 @@ let users = require("./auth_users.js").users;
 const public_users = express.Router();
 
 const resolveWithAxios = async (data) => {
-  const response = await axios({
-    method: 'get',
-    url: 'http://localhost/virtual',
+  const response = await axios.get('http://localhost/virtual', {
     adapter: async (config) => ({
       data,
       status: 200,

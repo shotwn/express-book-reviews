@@ -1,31 +1,3 @@
-PS C:\Users\anilh\Desktop\coursera-react\express-book-reviews> curl http://localhost:5000
+curl.exe -sS http://localhost:5000/
 
-Security Warning: Script Execution Risk                                                                                                           
-Invoke-WebRequest parses the content of the web page. Script code in the web page might be run when the page is parsed.                           
-      RECOMMENDED ACTION:                                                                                                                         
-      Use the -UseBasicParsing switch to avoid script code execution.                                                                             
-
-      Do you want to continue?
-    
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
-
-
-StatusCode        : 200
-StatusDescription : OK
-Content           : {"1":{"author":"Chinua Achebe","title":"Things Fall Apart","reviews":{}},"2":{"author":"Hans Christian Andersen","title":"Fai
-                    ry tales","reviews":{}},"3":{"author":"Dante Alighieri","title":"The Divine...
-RawContent        : HTTP/1.1 200 OK
-                    Connection: keep-alive
-                    Keep-Alive: timeout=5
-                    Content-Length: 744
-                    Content-Type: application/json; charset=utf-8
-                    Date: Thu, 25 Jun 2026 17:42:07 GMT
-                    ETag: W/"2e8-vV2ndFHyslYEvRcTKr...
-Forms             : {}
-Headers           : {[Connection, keep-alive], [Keep-Alive, timeout=5], [Content-Length, 744], [Content-Type, application/json; charset=utf-8]...
-                    }
-Images            : {}
-InputFields       : {}
-Links             : {}
-ParsedHtml        : mshtml.HTMLDocumentClass
-RawContentLength  : 744
+{"1":{"author":"Chinua Achebe","title":"Things Fall Apart","reviews":{"1":"Very exciting book, I wonder did coursera made it up or is it real? lol"}},"2":{"author":"Hans Christian Andersen","title":"Fairy tales","reviews":{}},"3":{"author":"Dante Alighieri","title":"The Divine Comedy","reviews":{}},"4":{"author":"Unknown","title":"The Epic Of Gilgamesh","reviews":{}},"5":{"author":"Unknown","title":"The Book Of Job","reviews":{}},"6":{"author":"Unknown","title":"One Thousand and One Nights","reviews":{}},"7":{"author":"Unknown","title":"Nj+íl's Saga","reviews":{}},"8":{"author":"Jane Austen","title":"Pride and Prejudice","reviews":{}},"9":{"author":"Honor+® de Balzac","title":"Le P+¿re Goriot","reviews":{}},"10":{"author":"Samuel Beckett","title":"Molloy, Malone Dies, The Unnamable, the trilogy","reviews":{}}}

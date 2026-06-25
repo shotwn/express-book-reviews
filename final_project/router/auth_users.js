@@ -47,6 +47,7 @@ regd_users.post("/login", (req,res) => {
   }
 
   return res.json({
+    message: "Login successful!",
     token: newToken
   })
 });
