@@ -22,18 +22,18 @@ public_users.post("/register", (req,res) => {
 });
 
 // Get the book list available in the shop
-public_users.get('/',function (req, res) {
-  return res.json({...books});
+public_users.get('/', async function (req, res) {
+  return res.json(await Promise.resolve({...books}));
 });
 
 // Get book details based on ISBN
-public_users.get('/isbn/:isbn',function (req, res) {
+public_users.get('/isbn/:isbn', async function (req, res) {
   const isbn = req.params.isbn;
   if (!isbn) {
     return res.status(400).json({message: "ISBN parameter is required"});
   }
 
-  const book = books[isbn];
+  const book = await Promise.resolve(books[isbn]);
   if (book) {
     return res.json(book);
   } else {
@@ -42,13 +42,13 @@ public_users.get('/isbn/:isbn',function (req, res) {
  });
   
 // Get book details based on author
-public_users.get('/author/:author',function (req, res) {
+public_users.get('/author/:author', async function (req, res) {
   const author = req.params.author;
   if (!author) {
     return res.status(400).json({message: "Author parameter is required"});
   }
 
-  const filteredBooks = Object.values(books).filter(book => book.author === author);
+  const filteredBooks = await Promise.resolve(Object.values(books).filter(book => book.author === author));
   if (filteredBooks.length > 0) {
     return res.json(filteredBooks);
   } else {
@@ -57,13 +57,13 @@ public_users.get('/author/:author',function (req, res) {
 });
 
 // Get all books based on title
-public_users.get('/title/:title',function (req, res) {
+public_users.get('/title/:title', async function (req, res) {
   const title = req.params.title;
   if (!title) {
     return res.status(400).json({message: "Title parameter is required"});
   }
 
-  const filteredBooks = Object.values(books).filter(book => book.title === title);
+  const filteredBooks = await Promise.resolve(Object.values(books).filter(book => book.title === title));
   if (filteredBooks.length > 0) {
     return res.json(filteredBooks);
   } else {
@@ -72,13 +72,13 @@ public_users.get('/title/:title',function (req, res) {
 });
 
 //  Get book review
-public_users.get('/review/:isbn',function (req, res) {
+public_users.get('/review/:isbn', async function (req, res) {
   const isbn = req.params.isbn;
   if (!isbn) {
     return res.status(400).json({message: "ISBN parameter is required"});
   }
 
-  const book = books[isbn];
+  const book = await Promise.resolve(books[isbn]);
   if (book) {
     return res.json(book.reviews);
   } else {
