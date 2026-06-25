@@ -6,7 +6,7 @@ const regd_users = express.Router();
 let users = [];
 
 const isValid = (username)=>{ //returns boolean
-//write code to check is the username is valid
+  return users.some((user) => user.name === username);
 }
 
 const authenticatedUser = (username,password)=>{ //returns boolean
@@ -39,7 +39,12 @@ regd_users.post("/login", (req,res) => {
   const newToken = jwt.sign({
     username,
     loginTime: Date()
-  }, process.env.JWT_SECRET)
+  }, process.env.JWT_SECRET || "access")
+
+  req.session.authorization = {
+    accessToken: newToken,
+    username
+  }
 
   return res.json({
     token: newToken
@@ -48,8 +53,34 @@ regd_users.post("/login", (req,res) => {
 
 // Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
+  const isbn = req.params.isbn;
+  const review = req.query.review;
+  const username = req.session?.authorization?.username;
+
+  if (!isbn || !review) {
+    return res.status(400).json({
+      message: "ISBN and review are required"
+    });
+  }
+
+  if (!books[isbn]) {
+    return res.status(404).json({
+      message: "Book not found"
+    });
+  }
+
+  if (!username) {
+    return res.status(403).json({
+      message: "User not logged in"
+    });
+  }
+
+  books[isbn].reviews[username] = review;
+
+  return res.status(200).json({
+    message: "Review added or updated successfully",
+    reviews: books[isbn].reviews
+  });
 });
 
 module.exports.authenticated = regd_users;

@@ -1,0 +1,13 @@
+curl.exe -sS -i -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" --data-binary @tasks/register_payload.json
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 229
+ETag: W/"e5-bOYkH/HBVGKwsT4nwf+Z5BKlOKA"
+Set-Cookie: connect.sid=s%3AaWK6MMUhK_G1CuzNB6g77H8Feq6OOsEC.%2BF%2Bk9vYa2yyUwKwQ9PHRp61AAiD5VJ0aXIcbqyd%2FOD4; Path=/; HttpOnly
+Date: Thu, 25 Jun 2026 18:10:52 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvZGV4X3VzZXIiLCJsb2dpblRpbWUiOiJUaHUgSnVuIDI1IDIwMjYgMjE6MTA6NTIgR01UKzAzMDAgKEdNVCswMzowMCkiLCJpYXQiOjE3ODI0MTEwNTJ9.XLbDwYUQ0pNNfp4ifG_NXHXsmGNytF3u2OqMvk_c3ZM"}

@@ -1,0 +1,22 @@
+PS C:\Users\anilh\Desktop\coursera-react\express-book-reviews> curl http://localhost:5000/review/1
+
+                                                                                                                                                  
+StatusCode        : 200                                                                                                                           
+StatusDescription : OK                                                                                                                            
+Content           : {"1":"Very exciting book, I wonder did coursera made it up or is it real? lol"}                                               
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Keep-Alive: timeout=5
+                    Content-Length: 79
+                    Content-Type: application/json; charset=utf-8
+                    Date: Thu, 25 Jun 2026 17:52:35 GMT
+                    ETag: W/"4f-+yjTdbpu5FRt8BdQyywM...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Keep-Alive, timeout=5], [Content-Length, 79], [Content-Type, application/json; charset=utf-8]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 79
+
+
